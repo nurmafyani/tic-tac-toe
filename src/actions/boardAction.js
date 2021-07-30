@@ -1,16 +1,16 @@
-import { DRAW_X, DRAW_Y } from '../helpers/actionTypes'
+import { DRAW_X, DRAW_O } from '../helpers/actionTypes'
 
-export function draeXAction(cell) {
+export function drawXAction(cellIndex) {
 	return {
 		type: DRAW_X,
-		cell
+		cellIndex,
 	}
 }
 
 
-export function draeYAction(cell) {
+export function drawOAction(cellIndex) {
 	return {
-		type: DRAW_Y,
-		cell
+		type: DRAW_O,
+		cellIndex,
 	}
 }
