@@ -26,3 +26,22 @@
 	border: 1px solid lightgray;
 	width: 302px;
 }
+
+.badge-play {
+	border-radius: 10px;
+	color: white;
+  	padding-right: 5px;
+  	padding-left: 5px;
+  	margin-left: 5px;
+  	padding-top: 1px;
+  	padding-bottom: 1px;
+  	font-size: 0.9rem;
+  	font-weight: bold;
+}
+.b-player1 {	
+  background: red;
+  
+}
+.b-player2 {
+	background: blue;
+}
