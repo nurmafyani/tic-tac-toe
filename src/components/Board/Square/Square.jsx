@@ -7,25 +7,26 @@ import { drawXAction, drawOAction } from '../../../actions/boardAction.js';
 import { toggleTurnAction } from '../../../actions/playerAction.js';
 
 function Square(props) {
-	const { index, symbol, draw, players } = props
+	const { index, symbol, draw, players, board } = props
 	const disabled = symbol ? 'disabled' : ''
-	return <div className={ 'cell '+disabled } onClick={() => draw(players, index)}>
+	return <div className={ 'cell '+disabled } onClick={() => draw(board, players, index)}>
 	{symbol ? (symbol === 'X' ? <Cross/> : <Zero/>) : ''}
 	</div>
 }
 
-const mapStateToProps = ({ players }) => ({ players })
+const mapStateToProps = ({ board, players }) => ({ board, players })
 
 const mapDispatchToProps = dispatch => ({
-	draw: (players, cellIndex) => {
-		if(players[players.turn] === 'X') {
-			dispatch(drawXAction(cellIndex))
-		} else {
-			dispatch(drawOAction(cellIndex))
+	draw: (board, players, cellIndex) => {
+		if(!board[cellIndex]){
+			if(players[players.turn] === 'X') {
+				dispatch(drawXAction(cellIndex))
+			} else {
+				dispatch(drawOAction(cellIndex))
+			}
+		
+			dispatch(toggleTurnAction())
 		}
-		
-		dispatch(toggleTurnAction())
-		
 	}
 })
 

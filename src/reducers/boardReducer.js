@@ -10,12 +10,12 @@ export function boardReducer(state = initialState, action) {
 	switch(action.type) {
 		case DRAW_X:
 			const newXState = [...state]
-			newXState[action.cellIndex] = newXState[action.cellIndex] ? newXState[action.cellIndex] : 'X'
+			newXState[action.cellIndex] ='X'
 			return newXState
 
 		case DRAW_O:
 			const newOState = [...state]
-			newOState[action.cellIndex] = newOState[action.cellIndex] ? newOState[action.cellIndex] : 'O'
+			newOState[action.cellIndex] = 'O'
 			return newOState	
 
 		default:
